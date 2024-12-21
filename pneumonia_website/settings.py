@@ -27,12 +27,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+SECRET_KEY = 'H=2854o04566@_&#47tgzd5h^74fd#z52db54445bef460'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['Startups-and-Service-Med.onrender.com',]
+ALLOWED_HOSTS = ['Startups-and-Service-Med.onrender.com', '127.0.0.1']
 
 
 # Application definition

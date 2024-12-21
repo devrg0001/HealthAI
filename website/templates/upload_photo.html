@@ -1,14 +1,158 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Upload Photo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pneumonia Detector - Upload Photo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            margin: 0;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            height: 100vh; /* Full height */
+        }
+
+        .sidebar h2 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        input[type="file"] {
+            margin: 10px 0;
+            border: 2px dashed #007BFF;
+            border-radius: 4px;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .instructions {
+            margin-top: 20px;
+            text-align: left;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .result-message {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #FF4136; /* Red color for emphasis */
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Upload Photo</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Upload</button>
-    </form>
+    <div class="sidebar">
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="#upload">Upload Photo</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="container">
+            <h1>Upload Photo</h1>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Upload</button>
+            </form>
+            <p>Supported formats: JPG, PNG</p>
+
+            {% if result_message %}
+                <p class="result-message">{{ result_message }}</p>
+            {% endif %}
+
+            <div class="instructions">
+                <h3>Pneumonia Detector</h3>
+                <p>This tool utilizes chest X-rays to screen for pneumonia.</p>
+                <p>Please note:</p>
+                <ul>
+                    <li>Not 100% accurate.</li>
+                    <li>Do not rely solely on this tool.</li>
+                    <li>Always seek a doctor's opinion for a definitive diagnosis.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
