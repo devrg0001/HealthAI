@@ -13,7 +13,7 @@ if physical_devices:
 tf.config.set_visible_devices([], 'GPU') 
 from tensorflow import keras
 
-os.listdir("./pneumonia_website/website/chest_xray")
+#os.listdir("./pneumonia_website/website/chest_xray")
 #aiegh
 #imports necessary for the Ai to work
 
@@ -26,7 +26,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 #importing the tools required for python to recognize the model
 
 # %%
-new_model = tf.keras.models.load_model('./pneumonia_website/website/my_checkpoint_Pnuemonia.keras')
+new_model = tf.keras.models.load_model('./website/my_checkpoint_Pnuemonia.keras')
 
 # Show the model architecture
 new_model.summary()
@@ -47,13 +47,13 @@ image_generator = ImageDataGenerator(
 #doing a simple normalization and centering of the image to make it easier for the model to read
 
 # %%
-pnmoniatestdir = "./pneumonia_website/website/test_images_Pnmonia"
+'''pnmoniatestdir = "./pneumonia_website/website/test_images_Pnmonia"
 PnmoniaTest = image_generator.flow_from_directory(pnmoniatestdir, 
                                             batch_size=1, 
                                             shuffle=False, 
                                             class_mode='binary',
                                             target_size=(180, 180))
-
+'''
 #finding the images directory
 '''
 def runImageTesting():
