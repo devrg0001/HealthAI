@@ -14,7 +14,7 @@ tf.config.set_visible_devices([], 'GPU')
 from tensorflow import keras
 
 os.listdir("./pneumonia_website/website/chest_xray")
-
+#aiegh
 #imports necessary for the Ai to work
 
 # %%
