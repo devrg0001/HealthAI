@@ -32,7 +32,12 @@ SECRET_KEY = 'H=2854o04566@_&#47tgzd5h^74fd#z52db54445bef460'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['Startups-and-Service-Med.onrender.com', '127.0.0.1']
+ALLOWED_HOSTS = [
+    'startups-and-service-med-bobm.onrender.com',
+    'your-domain.com',  # Add any other allowed domains or IPs here
+    'localhost',         # Allow localhost for development
+    '127.0.0.1',         # Allow localhost for development
+]
 
 
 # Application definition
