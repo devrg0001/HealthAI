@@ -7,7 +7,7 @@ import sys
 from django.core.management import execute_from_command_line
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "your_project.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pneumonia_website.settings")
     
     # Get the PORT from the environment variable provided by Render
     port = os.environ.get('PORT', '8000')
