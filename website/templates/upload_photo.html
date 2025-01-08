@@ -57,32 +57,43 @@
             </div>
         </div>
 
-        <!-- X-Ray Analysis Section -->
-        <div class="max-w-3xl mx-auto px-4 py-16">
-            <h2 class="text-2xl font-bold mb-6">X-Ray Analysis</h2>
-            
-            <!-- Form for uploading X-ray image -->
-            <form action="{% url 'testing' %}" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="upload-area p-8 rounded-lg text-center">
-                    <i data-lucide="upload-cloud" class="h-12 w-12 mx-auto mb-4 text-gray-400"></i>
-                    <p class="text-gray-600 mb-4">Upload your X-ray image</p>
-                    <input type="file" accept="image/*" class="hidden" id="fileInput" name="image">
-                    <label for="fileInput" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300 cursor-pointer">
-                        Choose File
-                    </label>
-                </div>
+       <!-- X-Ray Analysis Section -->
 
-                <button type="submit" class="w-full mt-4 bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700">
-                    Analyze Image
-                </button>
-            </form>
+<div class="max-w-3xl mx-auto px-4 py-16">
+    <h2 class="text-2xl font-bold mb-6">X-Ray Analysis</h2>
+    
+    <!-- Form for uploading X-ray image -->
+    <form action="{% url 'testing' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="upload-area p-8 rounded-lg text-center border border-gray-300">
+            <i data-lucide="upload-cloud" class="h-12 w-12 mx-auto mb-4 text-gray-400"></i>
+            <p class="text-gray-600 mb-4">Upload your X-ray image</p>
 
-            {% if result_message %}
-                <div class="mt-6 text-center text-xl text-blue-600">
-                    <p>{{ result_message }}</p>
-                </div>
-            {% endif %}
+            <!-- Hidden checkbox for showing a preview -->
+            <input type="file" accept="image/*" id="fileInput" name="image" class="hidden" onchange="document.getElementById('previewArea').style.display='block'; document.getElementById('uploadArea').classList.add('bg-green-100', 'border-green-500');">
+
+            <label for="fileInput" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300 cursor-pointer">
+                Choose File
+            </label>
+
+            <!-- Placeholder for the preview area -->
+            <div id="previewArea" class="hidden mt-4">
+                <p class="text-gray-600">Image selected successfully!</p>
+            </div>
+        </div>
+
+        <button type="submit" class="w-full mt-4 bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700">
+            Analyze Image
+        </button>
+    </form>
+
+    {% if result_message %}
+        <div class="mt-6 text-center text-xl text-blue-600">
+            <p>{{ result_message }}</p>
+        </div>
+    {% endif %}
+</div>
+
 
             <div class="medical-disclaimer mt-6 p-4 text-sm text-amber-800">
                 <strong>Medical Disclaimer:</strong>
@@ -150,7 +161,7 @@
 
             <div class="bg-white rounded-lg shadow-md p-8">
                 <div class="flex flex-col md:flex-row items-center">
-                    <img src="Media/image.jpg" alt="Dev R Gupta" 
+                    <img src="MEDIA/image.jpg" alt="Dev R Gupta" 
                         class="w-64 h-64 rounded-full object-cover mb-8 md:mb-0 md:mr-8">
                     <div>
                         <h2 class="text-2xl font-bold mb-4">Dev R. Gupta</h2>
@@ -264,7 +275,7 @@
     <p class="text-gray-600 mb-8">Contact our investor relations team to learn more about investment opportunities.</p>
     
     <!-- Wrap the button with an anchor tag to trigger download -->
-     <a href="Media/PitchDeck.pdf" download>
+     <a href="MEDIA/PitchDeck.pdf" download>
     <button class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700">
         Request Investor Package
     </button>
