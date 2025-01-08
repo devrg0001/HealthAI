@@ -1,3 +1,4 @@
+<!DOCTYPE html>
    <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +35,7 @@
                     <button onclick="showPage('home')" class="px-3 py-2 text-gray-600 hover:text-gray-900" id="homeBtn">Home</button>
                     <button onclick="showPage('about')" class="px-3 py-2 text-gray-600 hover:text-gray-900" id="aboutBtn">About</button>
                     <button onclick="showPage('investors')" class="px-3 py-2 text-gray-600 hover:text-gray-900" id="investorsBtn">Investors</button>
+                    <button onclick="showPage('learn')" class="px-3 py-2 text-gray-600 hover:text-gray-900" id="learnBtn">Learn More</button>
                     <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Contact Us</button>
                 </div>
             </div>
@@ -47,11 +49,11 @@
             <div class="max-w-7xl mx-auto px-4 text-center text-white">
                 <h1 class="text-5xl font-bold mb-6">AI-Powered X-Ray Diagnostics</h1>
                 <p class="text-xl mb-8">Revolutionizing healthcare with advanced machine learning for faster, more accurate diagnoses.</p>
-               <a href='about'> 
-               <button class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700">
+               
+               <button  onclick="showPage('learn')" class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700">
                     Learn More →
                 </button>
-               </a>
+               
             </div>
         </div>
 
@@ -267,8 +269,90 @@
     </button>
 </a>
 </div>
+</div>
 
-  
+<div id="learnPage" class="hidden pt-16">
+  <!-- Hero Section -->
+  <div class="relative h-[500px] bg-gradient-to-r from-gray-900 to-gray-800 text-white">
+    <div class="absolute inset-0 bg-black opacity-50" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; mix-blend-mode: overlay;"></div>
+    <div class="relative max-w-7xl mx-auto px-4 h-full flex items-center">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl font-bold mb-6">Bridging the Healthcare Gap</h1>
+        <p class="text-xl mb-8">Bringing advanced diagnostics to underserved communities worldwide.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Statistics Section -->
+  <div class="max-w-7xl mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-4 gap-8 mb-16">
+      <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+        <i data-lucide="alert-triangle" class="h-12 w-12 mx-auto mb-4 text-red-600"></i>
+        <h3 class="text-4xl font-bold mb-2">1%</h3>
+        <p class="text-gray-600">of primary care clinics have basic diagnostic capacity</p>
+      </div>
+      <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+        <i data-lucide="activity" class="h-12 w-12 mx-auto mb-4 text-red-600"></i>
+        <h3 class="text-4xl font-bold mb-2">39M+</h3>
+        <p class="text-gray-600">deaths from Non-Communicable diseases in 2021</p>
+      </div>
+      <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+        <i data-lucide="heart" class="h-12 w-12 mx-auto mb-4 text-red-600"></i>
+        <h3 class="text-4xl font-bold mb-2">47%</h3>
+        <p class="text-gray-600">of people have access to basic diagnostic services</p>
+      </div>
+      <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+        <i data-lucide="alert-triangle" class="h-12 w-12 mx-auto mb-4 text-red-600"></i>
+        <h3 class="text-4xl font-bold mb-2">1M+</h3>
+        <p class="text-gray-600">deaths from preventable respiratory diseases annually</p>
+      </div>
+    </div>
+
+    <!-- Personal Journey Section -->
+    <div class="bg-gray-50 rounded-xl p-8 mb-16">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-3xl font-bold mb-6">A Personal Journey</h2>
+          <div class="prose max-w-none text-gray-600">
+            <p class="mb-4">During my visit to India, I witnessed firsthand the stark healthcare disparities that plague lower and middle-income countries. What struck me most was that many deaths in these regions could be prevented with access to basic diagnostic services.</p>
+            <p class="mb-4">In rural areas, the lack of diagnostic facilities means that treatable conditions often go undiagnosed until it's too late. The situation is particularly dire for respiratory diseases like tuberculosis, where early detection can make the difference between life and death.</p>
+            <p>This personal experience became the catalyst for HealthAI. We're not just building technology; we're creating a solution that can bring professional-grade diagnostic capabilities to the most remote corners of the world.</p>
+          </div>
+        </div>
+        <div class="relative h-[400px] rounded-lg overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1584362917165-526a968579e8?ixlib=rb-1.2.1&auto=format&fit=crop&q=80" alt="Rural healthcare facility" class="absolute inset-0 w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+   
+    
+
+    <!-- Solution Impact -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold mb-8">Our Impact</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="relative h-48">
+            <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-1.2.1&auto=format&fit=crop&q=80" alt="Healthcare accessibility" class="absolute inset-0 w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-4">Accessibility</h3>
+            <p class="text-gray-600">Bringing advanced diagnostic capabilities to remote and underserved areas through AI-powered technology that runs on basic computers and smartphones.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="relative h-48">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&q=80" alt="Early detection" class="absolute inset-0 w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-4">Early Detection</h3>
+            <p class="text-gray-600">Enabling early diagnosis of critical conditions, particularly respiratory diseases, leading to better treatment outcomes and reduced mortality rates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
@@ -309,6 +393,7 @@
             document.getElementById('homePage').classList.add('hidden');
             document.getElementById('aboutPage').classList.add('hidden');
             document.getElementById('investorsPage').classList.add('hidden');
+           document.getElementById('learnPage').classList.add('hidden');
             
             // Show selected page
             document.getElementById(pageId + 'Page').classList.remove('hidden');
@@ -326,3 +411,4 @@
     </script>
     </body>
     </html>
+
