@@ -36,7 +36,7 @@
                     <button onclick="showPage('about')" class="px-3 py-2 text-gray-600 hover:text-gray-900" id="aboutBtn">About</button>
                     <button onclick="showPage('investors')" class="px-3 py-2 text-gray-600 hover:text-gray-900" id="investorsBtn">Investors</button>
                     <button onclick="showPage('learn')" class="px-3 py-2 text-gray-600 hover:text-gray-900" id="learnBtn">Learn More</button>
-                    <button onclick="showPage('contact')"class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Contact Us</button>
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Contact Us</button>
                 </div>
             </div>
         </div>
@@ -57,43 +57,32 @@
             </div>
         </div>
 
-       <!-- X-Ray Analysis Section -->
+        <!-- X-Ray Analysis Section -->
+        <div class="max-w-3xl mx-auto px-4 py-16">
+            <h2 class="text-2xl font-bold mb-6">X-Ray Analysis</h2>
+            
+            <!-- Form for uploading X-ray image -->
+            <form action="{% url 'testing' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="upload-area p-8 rounded-lg text-center">
+                    <i data-lucide="upload-cloud" class="h-12 w-12 mx-auto mb-4 text-gray-400"></i>
+                    <p class="text-gray-600 mb-4">Upload your X-ray image</p>
+                    <input type="file" accept="image/*" class="hidden" id="fileInput" name="image">
+                    <label for="fileInput" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300 cursor-pointer">
+                        Choose File
+                    </label>
+                </div>
 
-<div class="max-w-3xl mx-auto px-4 py-16">
-    <h2 class="text-2xl font-bold mb-6">X-Ray Analysis</h2>
-    
-    <!-- Form for uploading X-ray image -->
-    <form action="{% url 'testing' %}" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="upload-area p-8 rounded-lg text-center border border-gray-300">
-            <i data-lucide="upload-cloud" class="h-12 w-12 mx-auto mb-4 text-gray-400"></i>
-            <p class="text-gray-600 mb-4">Upload your X-ray image</p>
+                <button type="submit" class="w-full mt-4 bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700">
+                    Analyze Image
+                </button>
+            </form>
 
-            <!-- Hidden checkbox for showing a preview -->
-            <input type="file" accept="image/*" id="fileInput" name="image" class="hidden" onchange="document.getElementById('previewArea').style.display='block'; document.getElementById('uploadArea').classList.add('bg-green-100', 'border-green-500');">
-
-            <label for="fileInput" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300 cursor-pointer">
-                Choose File
-            </label>
-
-            <!-- Placeholder for the preview area -->
-            <div id="previewArea" class="hidden mt-4">
-                <p class="text-gray-600">Image selected successfully!</p>
-            </div>
-        </div>
-
-        <button type="submit" class="w-full mt-4 bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700">
-            Analyze Image
-        </button>
-    </form>
-
-    {% if result_message %}
-        <div class="mt-6 text-center text-xl text-blue-600">
-            <p>{{ result_message }}</p>
-        </div>
-    {% endif %}
-</div>
-
+            {% if result_message %}
+                <div class="mt-6 text-center text-xl text-blue-600">
+                    <p>{{ result_message }}</p>
+                </div>
+            {% endif %}
 
             <div class="medical-disclaimer mt-6 p-4 text-sm text-amber-800">
                 <strong>Medical Disclaimer:</strong>
@@ -161,7 +150,7 @@
 
             <div class="bg-white rounded-lg shadow-md p-8">
                 <div class="flex flex-col md:flex-row items-center">
-                    <img src="MEDIA/image.jpg" alt="Dev R Gupta" 
+                    <img src="Media/image.jpg" alt="Dev R Gupta" 
                         class="w-64 h-64 rounded-full object-cover mb-8 md:mb-0 md:mr-8">
                     <div>
                         <h2 class="text-2xl font-bold mb-4">Dev R. Gupta</h2>
@@ -275,7 +264,7 @@
     <p class="text-gray-600 mb-8">Contact our investor relations team to learn more about investment opportunities.</p>
     
     <!-- Wrap the button with an anchor tag to trigger download -->
-     <a href="MEDIA/PitchDeck.pdf" download>
+     <a href="/media/website/PitchDeck.pdf" download>
     <button class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700">
         Request Investor Package
     </button>
@@ -366,46 +355,6 @@
   </div>
 </div>
 
-   <!-- Contact Us Page -->
-<div id="contactPage" class="hidden pt-16">
-    <div class="max-w-7xl mx-auto px-4 py-16">
-        <div class="text-center mb-16">
-            <h1 class="text-4xl font-bold mb-6">Contact Us</h1>
-            <p class="text-xl text-gray-600">We'd love to hear from you! Reach out to us with any questions or feedback.</p>
-        </div>
-
-        <div class="bg-white p-8 rounded-lg shadow-md">
-            <form action="#" method="POST">
-                <div class="mb-6">
-                    <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name"
-                        class="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
-                </div>
-                <div class="mb-6">
-                    <label for="email" class="block text-gray-700 font-medium mb-2">Your Email</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email"
-                        class="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600">
-                </div>
-                <div class="mb-6">
-                    <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Write your message"
-                        class="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
-                </div>
-                <button type="submit"
-                    class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 w-full font-semibold">
-                    Submit
-                </button>
-            </form>
-        </div>
-
-        <div class="mt-12 text-center">
-            <p class="text-gray-600">You can also reach us via email: <span class="text-blue-600 font-medium">support@healthai.com</span></p>
-            <p class="text-gray-600">Or call us at: <span class="text-blue-600 font-medium">+1 (123) 456-7890</span></p>
-        </div>
-    </div>
-</div>
-
-
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4">
@@ -446,7 +395,7 @@
             document.getElementById('aboutPage').classList.add('hidden');
             document.getElementById('investorsPage').classList.add('hidden');
            document.getElementById('learnPage').classList.add('hidden');
-            document.getElementById('contactPage').classList.add('hidden');
+            
             // Show selected page
             document.getElementById(pageId + 'Page').classList.remove('hidden');
             
@@ -463,4 +412,3 @@
     </script>
     </body>
     </html>
-
