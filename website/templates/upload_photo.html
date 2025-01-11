@@ -115,6 +115,16 @@
             </div>
         </div>
 
+       <div class="w-full flex justify-center mb-8">
+              <div class="bg-black p-2 rounded-lg shadow-lg w-4/5 max-w-2xl">
+                  <video class="w-full h-auto" controls>
+                      <source src="{{ MEDIA_URL }}example_video.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                  </video>
+              </div>
+            </div>
+
+
         <!-- Testimonials -->
         <div class="max-w-7xl mx-auto px-4 py-16">
             <h2 class="text-3xl font-bold text-center mb-12">Trusted by Leading Healthcare Providers</h2>
@@ -264,11 +274,8 @@
     <p class="text-gray-600 mb-8">Contact our investor relations team to learn more about investment opportunities.</p>
     
     <!-- Wrap the button with an anchor tag to trigger download -->
-     <a href="/MEDIA/PitchDeck.pdf" download>
-    <button class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700">
-        Request Investor Package
-    </button>
-</a>
+    
+<a href="{{ MEDIA_URL }}PitchDech.pdf" download="example_file.pdf">Download PDF</a>
 </div>
 </div>
 
