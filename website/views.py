@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from .forms import PhotoUploadForm
 from PIL import Image
 from .Pneumonia_Model_script import runImageTesting
+from django.conf import settings
 
 def testing(request):
     result_message = None  # Initialize result message
@@ -27,4 +28,8 @@ def testing(request):
     else:
         form = PhotoUploadForm()
 
-    return render(request, 'upload_photo.html', {'form': form, 'result_message': result_message})
+    
+    return render(request, 'upload_photo.html', {
+        'form': form, 'result_message': result_message,
+        'MEDIA_URL': settings.MEDIA_URL
+        })
