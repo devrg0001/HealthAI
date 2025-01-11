@@ -29,7 +29,7 @@ def testing(request):
         form = PhotoUploadForm()
 
 
-return render(request, 'upload_photo.html', {
+    return render(request, 'upload_photo.html', {
         'form': form, 'result_message': result_message,
         'MEDIA_URL': settings.MEDIA_URL
         })
