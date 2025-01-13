@@ -36,7 +36,8 @@ ALLOWED_HOSTS = [
     'startups-and-service-med-bobm.onrender.com',
     'your-domain.com',  # Add any other allowed domains or IPs here
     'localhost',         # Allow localhost for development
-    '127.0.0.1',         # Allow localhost for development
+    '127.0.0.1',     
+    '0.0.0.0:8000'# Allow localhost for development
 ]
 
 
