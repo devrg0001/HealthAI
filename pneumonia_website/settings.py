@@ -30,7 +30,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'MEDIA')
 SECRET_KEY = 'H=2854o04566@_&#47tgzd5h^74fd#z52db54445bef460'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'startups-and-service-med-bobm.onrender.com',
