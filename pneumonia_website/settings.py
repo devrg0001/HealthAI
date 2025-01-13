@@ -37,8 +37,8 @@ ALLOWED_HOSTS = [
     'your-domain.com',  # Add any other allowed domains or IPs here
     'localhost',         # Allow localhost for development
     '127.0.0.1',     
-    '0.0.0.0:8000'
-    '0.0.0.0'      # Allow localhost for development
+    '0.0.0.0:8000',
+    '0.0.0.0',      # Allow localhost for development
 ]
 
 
