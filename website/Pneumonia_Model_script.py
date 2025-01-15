@@ -70,7 +70,7 @@ image_generator = ImageDataGenerator(
     samplewise_std_normalization=True  # Normalize each image by dividing by its standard deviation
 )'''
 
-def runImageTesting(input_image):
+def runPneumonia(input_image):
     # Step 1: Open the image using PIL and convert to numpy array
     image_array = np.array(input_image, dtype=np.float32)  # Ensure the array is float32
     

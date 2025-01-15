@@ -57,14 +57,35 @@
         <div class="max-w-3xl mx-auto px-4 py-16">
             <h2 class="text-2xl font-bold mb-6">X-Ray Analysis</h2>
             
+            <p>Pneumonia Model</p>
             <!-- Form for uploading X-ray image -->
             <form action="{% url 'testing' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="upload-area p-8 rounded-lg text-center">
                     <i data-lucide="upload-cloud" class="h-12 w-12 mx-auto mb-4 text-gray-400"></i>
                     <p class="text-gray-600 mb-4">Upload your X-ray image</p>
-                    <input type="file" accept="image/*" class="hidden" id="fileInput" name="image">
-                    <label for="fileInput" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300 cursor-pointer">
+                    <input class="hidden" name = "network" value = "pneumonia">
+                    <input type="file" accept="image/*" class="hidden" id="fileInputPneumonia" name="image" required>
+                    <label for="fileInputPneumonia" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300 cursor-pointer">
+                        Choose File
+                    </label>
+                </div>
+
+                <button type="submit" class="w-full mt-4 bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700">
+                    Analyze Image
+                </button>
+            </form>
+
+            <p>Lung Cancer Model</p>
+
+            <form action="{% url 'testing' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="upload-area p-8 rounded-lg text-center">
+                    <i data-lucide="upload-cloud" class="h-12 w-12 mx-auto mb-4 text-gray-400"></i>
+                    <p class="text-gray-600 mb-4">Upload your X-ray image</p>
+                    <input class="hidden" name = "network" value = "lungCancer">
+                    <input type="file" accept="image/*" class="hidden" id="fileInputLungCancer" name="image" required>
+                    <label for="fileInputLungCancer" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300 cursor-pointer">
                         Choose File
                     </label>
                 </div>
@@ -88,6 +109,15 @@
 
         <!-- Features Section -->
         <div class="bg-gray-50 py-16">
+            
+            <div class="w-full flex justify-center mb-8">
+                <div class="bg-black p-2 rounded-lg shadow-lg w-4/5 max-w-2xl">
+                    <video class="w-full h-auto" controls>
+                        <source src="{{ MEDIA_URL }}example_video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
             <div class="max-w-7xl mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-12">Why Choose HealthAI?</h2>
                 <p class="text-center text-gray-600 mb-12">Transforming healthcare through innovation and accessibility</p>
@@ -176,7 +206,7 @@
         </div>
 
         <!-- Key Metrics -->
-        <div class="max-w-7xl mx-auto px-4 -mt-8">
+        <div class="max-w-50xl mx-auto px-4 -mt-8">
             <div class="grid md:grid-cols-4 gap-6">
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <p class="text-gray-600 text-sm">Healthcare Facilities</p>
