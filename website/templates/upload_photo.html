@@ -57,43 +57,39 @@
         <div class="max-w-3xl mx-auto px-4 py-16">
             <h2 class="text-2xl font-bold mb-6">X-Ray Analysis</h2>
             
-            <p>Pneumonia Model</p>
-            <!-- Form for uploading X-ray image -->
             <form action="{% url 'testing' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
+                
+                <!-- Dropdown for choosing network type -->
+                <div class="mb-4">
+                    <label for="network" class="block text-gray-600 mb-2">Select Model</label>
+                    <select id="network" name="network" class="w-full px-4 py-2 rounded-md border-gray-300 focus:ring-2 focus:ring-blue-500">
+                        <option value="pneumonia">Pneumonia Model</option>
+                        <option value="lungCancer">Lung Cancer Model</option>
+                    </select>
+                </div>
+            
+                <!-- Upload Area -->
                 <div class="upload-area p-8 rounded-lg text-center">
                     <i data-lucide="upload-cloud" class="h-12 w-12 mx-auto mb-4 text-gray-400"></i>
                     <p class="text-gray-600 mb-4">Upload your X-ray image</p>
-                    <input class="hidden" name = "network" value = "pneumonia">
-                    <input type="file" accept="image/*" class="hidden" id="fileInputPneumonia" name="image" required>
-                    <label for="fileInputPneumonia" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300 cursor-pointer">
+                    
+                    <!-- File input for image upload -->
+                    <input type="file" accept="image/*" class="hidden" id="fileInput" name="image" required>
+                    <label for="fileInput" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300 cursor-pointer">
                         Choose File
                     </label>
+                    
+                    <!-- Image upload indicator (hidden initially) -->
+                    <p id="fileIndicator" class="mt-4 text-green-500 hidden">Image selected</p>
                 </div>
-
+            
+                <!-- Submit button -->
                 <button type="submit" class="w-full mt-4 bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700">
                     Analyze Image
                 </button>
             </form>
-
-            <p>Lung Cancer Model</p>
-
-            <form action="{% url 'testing' %}" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="upload-area p-8 rounded-lg text-center">
-                    <i data-lucide="upload-cloud" class="h-12 w-12 mx-auto mb-4 text-gray-400"></i>
-                    <p class="text-gray-600 mb-4">Upload your X-ray image</p>
-                    <input class="hidden" name = "network" value = "lungCancer">
-                    <input type="file" accept="image/*" class="hidden" id="fileInputLungCancer" name="image" required>
-                    <label for="fileInputLungCancer" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300 cursor-pointer">
-                        Choose File
-                    </label>
-                </div>
-
-                <button type="submit" class="w-full mt-4 bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700">
-                    Analyze Image
-                </button>
-            </form>
+            
 
             {% if result_message %}
                 <div class="mt-6 text-center text-xl text-blue-600">
@@ -312,6 +308,13 @@
     </footer>
 
     <script>
+
+document.getElementById('fileInput').addEventListener('change', function() {
+        const indicator = document.getElementById('fileIndicator');
+        if (this.files && this.files[0]) {
+            indicator.classList.remove('hidden');  // Show indicator
+        }
+    });
         // Initialize Lucide icons
         lucide.createIcons();
 
