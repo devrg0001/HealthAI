@@ -79,11 +79,13 @@
                     <p class="text-gray-600 mb-4">Upload your X-ray image</p>
                     
                     <!-- File input for image upload -->
-                    <input type="file" accept="image/*" class="hidden" id="fileInput" name="image" required>
+                    <input type="file" accept="image/*" id="fileInput" name="image" class="hidden" onchange="document.getElementById('previewArea').style.display='block'; document.getElementById('uploadArea').classList.add('bg-green-100', 'border-green-500');">
                     <label for="fileInput" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-300 cursor-pointer">
                         Choose File
                     </label>
-                    
+                    <div id="previewArea" class="hidden mt-4">
+                      <p class="text-gray-600">Image selected successfully!</p>
+                    </div>
                     <!-- Image upload indicator (hidden initially) -->
                     <p id="fileIndicator" class="mt-4 text-green-500 hidden">Image selected</p>
                 </div>
