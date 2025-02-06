@@ -5,23 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HealthAI - AI-Powered X-Ray Diagnostics</title>
-    <script src="https://unpkg.com/lucide@latest"></script> 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Full-screen hero section */
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80') center/cover;
-            height: 600px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80') center/cover no-repeat;
+            filter: brightness(0%);
+            transition: filter 1.5s ease-in-out;
+            z-index: 1000;
         }
-        .upload-area {
-            border: 2px dashed #CBD5E0;
-            background: #F7FAFC;
+
+        /* Content container to enable scrolling after effect */
+        .content {
+            position: relative;
+            z-index: 1;
+            margin-top: 100vh; /* Push content below hero */
         }
-        .medical-disclaimer {
-            background-color: #FFF9E5;
-            border-left: 4px solid #F6B73C;
+
+        /* Hide overflow until effect completes */
+        body {
+            overflow: hidden;
         }
     </style>
 </head>
+<body>
+    <div class="hero-section" id="hero"></div>
+
+    <div class="content">
+        <h1 class="text-3xl text-center mt-10">Welcome to HealthAI</h1>
+        <p class="text-center mt-4">Your AI-powered X-ray diagnostics assistant.</p>
+    </div>
+
+    <script>
+        window.addEventListener("scroll", function() {
+            let scrollTop = window.scrollY;
+            let hero = document.getElementById("hero");
+
+            // Adjust brightness based on scroll
+            let brightness = Math.min(100, (scrollTop / window.innerHeight) * 100);
+            hero.style.filter = `brightness(${brightness}%)`;
+
+            // Enable scrolling after brightness reaches 100%
+            if (brightness >= 100) {
+                document.body.style.overflow = "auto";
+            }
+        });
+    </script>
+</body>
+
 <body class="bg-white">
     <!-- Navigation -->
     <nav class="bg-white shadow-sm fixed w-full z-10">
