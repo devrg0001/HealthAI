@@ -41,21 +41,7 @@
         <p class="text-center mt-4">Your AI-powered X-ray diagnostics assistant.</p>
     </div>
 
-    <script>
-        window.addEventListener("scroll", function() {
-            let scrollTop = window.scrollY;
-            let hero = document.getElementById("hero");
 
-            // Adjust brightness based on scroll
-            let brightness = Math.min(100, (scrollTop / window.innerHeight) * 100);
-            hero.style.filter = `brightness(${brightness}%)`;
-
-            // Enable scrolling after brightness reaches 100%
-            if (brightness >= 100) {
-                document.body.style.overflow = "auto";
-            }
-        });
-    </script>
 </body>
 
 <body class="bg-white">
